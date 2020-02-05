@@ -28,7 +28,14 @@
 						"type": "JsonSource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true
+							"recursive": true,
+							"maxConcurrentConnections": {
+								"value": "@pipeline().parameters.001adfwithdevops",
+								"type": "Expression"
+							},
+							"enablePartitionDiscovery": false,
+							"modifiedDatetimeStart": "2020-02-05T00:00:00.000Z",
+							"modifiedDatetimeEnd": "2020-02-07T00:00:00.000Z"
 						}
 					},
 					"sink": {
