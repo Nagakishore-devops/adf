@@ -57,10 +57,13 @@
 					"enableSkipIncompatibleRow": true,
 					"redirectIncompatibleRowSettings": {
 						"linkedServiceName": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "linkedService1",
 							"type": "LinkedServiceReference"
 						},
-						"path": "input"
+						"path": {
+							"value": "@pipeline().parameters.001adfwithdevops",
+							"type": "Expression"
+						}
 					},
 					"translator": {
 						"value": "@pipeline().parameters.001adfwithdevops",
