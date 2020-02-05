@@ -70,13 +70,19 @@
 				"inputs": [
 					{
 						"referenceName": "Json1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"output": "v2"
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "Json1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"output": "v2"
+						}
 					}
 				]
 			}
