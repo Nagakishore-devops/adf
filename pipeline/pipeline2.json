@@ -1,17 +1,17 @@
 {
-	"name": "pipeline1",
+	"name": "pipeline2",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "001devops",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
 					"retryIntervalInSeconds": 30,
-					"secureOutput": true,
-					"secureInput": true
+					"secureOutput": false,
+					"secureInput": false
 				},
 				"userProperties": [
 					{
@@ -29,10 +29,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"maxConcurrentConnections": {
-								"value": "@pipeline().parameters.001adfwithdevops",
-								"type": "Expression"
-							},
+							"maxConcurrentConnections": 2,
 							"enablePartitionDiscovery": false,
 							"modifiedDatetimeStart": "2020-02-05T00:00:00.000Z",
 							"modifiedDatetimeEnd": "2020-02-07T00:00:00.000Z"
@@ -41,29 +38,29 @@
 					"sink": {
 						"type": "JsonSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings",
-							"maxConcurrentConnections": 2,
-							"copyBehavior": "MergeFiles",
-							"blockSizeInMB": 10
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "JsonWriteSettings",
-							"quoteAllText": true,
-							"filePattern": "setOfObjects"
+							"quoteAllText": true
 						}
 					},
-					"enableStaging": false,
-					"parallelCopies": 5,
-					"enableSkipIncompatibleRow": true,
-					"redirectIncompatibleRowSettings": {
+					"enableStaging": true,
+					"stagingSettings": {
 						"linkedServiceName": {
 							"referenceName": "AzureBlobStorage1",
 							"type": "LinkedServiceReference"
 						},
-						"path": "input"
+						"path": {
+							"value": "@pipeline().Pipeline",
+							"type": "Expression"
+						},
+						"enableCompression": true
 					},
+					"parallelCopies": 2,
+					"enableSkipIncompatibleRow": false,
 					"translator": {
-						"value": "@pipeline().parameters.001adfwithdevops",
+						"value": "@pipeline().DataFactory",
 						"type": "Expression"
 					}
 				},
@@ -87,15 +84,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"001adfwithdevops": {
-				"type": "Object",
-				"defaultValue": "2"
-			},
-			"value": {
-				"type": "Object"
-			}
-		},
 		"annotations": []
 	}
 }
