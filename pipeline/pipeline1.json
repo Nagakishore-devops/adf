@@ -89,11 +89,17 @@
 		],
 		"parameters": {
 			"001adfwithdevops": {
-				"type": "Object",
+				"type": "object",
 				"defaultValue": "2"
 			},
 			"value": {
 				"type": "Object"
+			}
+		},
+		"variables": {
+			"001adf": {
+				"type": "String",
+				"defaultValue": "2"
 			}
 		},
 		"annotations": []
