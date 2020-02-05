@@ -25,8 +25,15 @@
 				],
 				"typeProperties": {
 					"source": {
-						"type": "AzureMySqlSource",
-						"queryTimeout": "02:00:00"
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"maxConcurrentConnections": 2,
+							"enablePartitionDiscovery": false,
+							"modifiedDatetimeStart": "2020-02-05T00:00:00.000Z",
+							"modifiedDatetimeEnd": "2020-02-07T00:00:00.000Z"
+						}
 					},
 					"sink": {
 						"type": "JsonSink",
@@ -59,8 +66,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureMySqlTable1",
-						"type": "DatasetReference"
+						"referenceName": "Json1",
+						"type": "DatasetReference",
+						"parameters": {
+							"output": "v2"
+						}
 					}
 				],
 				"outputs": [
