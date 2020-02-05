@@ -13,10 +13,75 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "input//"
+					},
+					{
+						"name": "Destination",
+						"value": "input//"
+					}
+				],
 				"typeProperties": {
-					"enableStaging": false
-				}
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"maxConcurrentConnections": 2,
+							"enablePartitionDiscovery": false,
+							"modifiedDatetimeStart": "2020-02-05T00:00:00.000Z",
+							"modifiedDatetimeEnd": "2020-02-07T00:00:00.000Z"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings",
+							"quoteAllText": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureBlobStorage1",
+							"type": "LinkedServiceReference"
+						},
+						"path": {
+							"value": "@pipeline().Pipeline",
+							"type": "Expression"
+						},
+						"enableCompression": true
+					},
+					"parallelCopies": 2,
+					"enableSkipIncompatibleRow": false,
+					"translator": {
+						"value": "@pipeline().DataFactory",
+						"type": "Expression"
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference",
+						"parameters": {
+							"output": "v2"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference",
+						"parameters": {
+							"output": "v2"
+						}
+					}
+				]
 			}
 		],
 		"annotations": []
