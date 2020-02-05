@@ -54,6 +54,10 @@
 							"type": "LinkedServiceReference"
 						},
 						"path": "input"
+					},
+					"translator": {
+						"value": "@pipeline().parameters.001adfwithdevops",
+						"type": "Expression"
 					}
 				},
 				"inputs": [
@@ -70,6 +74,15 @@
 				]
 			}
 		],
+		"parameters": {
+			"001adfwithdevops": {
+				"type": "Object",
+				"defaultValue": "2"
+			},
+			"value": {
+				"type": "Object"
+			}
+		},
 		"annotations": []
 	}
 }
