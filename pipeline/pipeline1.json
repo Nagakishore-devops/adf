@@ -60,8 +60,12 @@
 							"referenceName": "linkedService1",
 							"type": "LinkedServiceReference"
 						},
-						"path": "input"
+						"path": {
+							"value": "@variables('001adf')",
+							"type": "Expression"
+						}
 					},
+					"dataIntegrationUnits": 2,
 					"translator": {
 						"value": "@pipeline().parameters.001adfwithdevops",
 						"type": "Expression"
