@@ -102,7 +102,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "",
+					"notebookPath": {
+						"value": "@pipeline().parameters.001adfwithdevops",
+						"type": "Expression"
+					},
 					"baseParameters": {
 						"input": {
 							"value": "@pipeline().parameters.001adfwithdevops",
