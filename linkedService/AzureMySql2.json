@@ -1,6 +1,11 @@
 {
 	"name": "AzureMySql2",
 	"properties": {
+		"parameters": {
+			"linked": {
+				"type": "object"
+			}
+		},
 		"annotations": [],
 		"type": "AzureMySql",
 		"typeProperties": {
