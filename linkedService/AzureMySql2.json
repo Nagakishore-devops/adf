@@ -1,0 +1,18 @@
+{
+	"name": "AzureMySql2",
+	"properties": {
+		"annotations": [],
+		"type": "AzureMySql",
+		"typeProperties": {
+			"connectionString": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "kishu",
+				"secretVersion": "Kishore15"
+			}
+		}
+	}
+}
