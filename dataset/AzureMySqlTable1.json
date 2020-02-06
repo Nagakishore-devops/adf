@@ -2,8 +2,22 @@
 	"name": "AzureMySqlTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureMySql1",
+			"referenceName": "AzureMySql2",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"1": {
+				"type": "string",
+				"defaultValue": "3"
+			},
+			"2": {
+				"type": "string",
+				"defaultValue": "4"
+			},
+			"musql": {
+				"type": "object",
+				"defaultValue": "2"
+			}
 		},
 		"annotations": [],
 		"type": "AzureMySqlTable",
