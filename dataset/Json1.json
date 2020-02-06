@@ -2,7 +2,7 @@
 	"name": "Json1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "linkedService1",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
@@ -16,7 +16,18 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "input"
+				"fileName": {
+					"value": "@dataset().output",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().output",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().output",
+					"type": "Expression"
+				}
 			}
 		}
 	}
