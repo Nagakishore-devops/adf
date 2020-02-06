@@ -1,0 +1,27 @@
+{
+	"name": "AzureDatabricks1",
+	"properties": {
+		"parameters": {
+			"Note": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://.azuredatabricks.net",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "kishu",
+				"secretVersion": "kishore15"
+			},
+			"newClusterNodeType": "@linkedService().Note",
+			"newClusterNumOfWorker": "1",
+			"newClusterVersion": "notebookadf"
+		}
+	}
+}
