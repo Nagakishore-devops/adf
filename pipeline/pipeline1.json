@@ -88,52 +88,6 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Notebook1",
-				"type": "DatabricksNotebook",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": true,
-					"secureInput": true
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebookPath": {
-						"value": "@pipeline().parameters.001adfwithdevops",
-						"type": "Expression"
-					},
-					"baseParameters": {
-						"input": {
-							"value": "@pipeline().parameters.001adfwithdevops",
-							"type": "Expression"
-						}
-					},
-					"libraries": [
-						{
-							"maven": {
-								"coordinates": "drop",
-								"repo": "adf",
-								"exclusions": [
-									"artifact"
-								]
-							}
-						}
-					]
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricks1",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"Note": {
-							"value": "@pipeline().parameters.001adfwithdevops",
-							"type": "Expression"
-						}
-					}
-				}
 			}
 		],
 		"parameters": {
